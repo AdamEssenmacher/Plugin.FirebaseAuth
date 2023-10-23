@@ -22,8 +22,6 @@ namespace Plugin.FirebaseAuth
         Task<IAuthTokenResult> GetIdTokenResultAsync(bool forceRefresh);
         Task<IAuthResult> LinkWithCredentialAsync(IAuthCredential credential);
         Task<IAuthResult> LinkWithProviderAsync(IFederatedAuthProvider federatedAuthProvider);
-        Task<IAuthResult> ReauthenticateAndRetrieveDataAsync(IAuthCredential credential);
-        Task<IAuthResult> ReauthenticateWithProviderAsync(IFederatedAuthProvider federatedAuthProvider);
         Task ReauthenticateAsync(IAuthCredential credential);
         Task ReloadAsync();
         Task SendEmailVerificationAsync();

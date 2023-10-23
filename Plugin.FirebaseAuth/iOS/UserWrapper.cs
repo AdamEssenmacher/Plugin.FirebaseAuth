@@ -119,48 +119,6 @@ namespace Plugin.FirebaseAuth
             return tcs.Task;
         }
 
-        public async Task<IAuthResult> ReauthenticateAndRetrieveDataAsync(IAuthCredential credential)
-        {
-            try
-            {
-                var result = await _user.ReauthenticateAndRetrieveDataAsync(credential.ToNative()).ConfigureAwait(false);
-                return new AuthResultWrapper(result);
-            }
-            catch (NSErrorException e)
-            {
-                throw ExceptionMapper.Map(e);
-            }
-        }
-
-        public Task<IAuthResult> ReauthenticateWithProviderAsync(IFederatedAuthProvider federatedAuthProvider)
-        {
-            var tcs = new TaskCompletionSource<IAuthResult>();
-
-            federatedAuthProvider.ToNative().Completion(FirebaseAuth.ReauthenticateWithProviderAuthUIDelegate, (credential, error) =>
-            {
-                if (error != null)
-                {
-                    tcs.SetException(ExceptionMapper.Map(error));
-                }
-                else
-                {
-                    _user.ReauthenticateAndRetrieveData(credential!, (result, error) =>
-                    {
-                        if (error != null)
-                        {
-                            tcs.SetException(ExceptionMapper.Map(error));
-                        }
-                        else
-                        {
-                            tcs.SetResult(new AuthResultWrapper(result!));
-                        }
-                    });
-                }
-            });
-
-            return tcs.Task;
-        }
-
         public async Task ReauthenticateAsync(IAuthCredential credential)
         {
             try
