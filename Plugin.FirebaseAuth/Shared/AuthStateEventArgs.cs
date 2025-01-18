@@ -3,11 +3,11 @@ namespace Plugin.FirebaseAuth
 {
     public class AuthStateEventArgs : EventArgs
     {
-        public AuthStateEventArgs(IAuth auth)
+        public AuthStateEventArgs(IFirebaseAuth auth)
         {
             Auth = auth;
         }
 
-        public IAuth Auth { get; }
+        public IFirebaseAuth Auth { get; }
     }
 }

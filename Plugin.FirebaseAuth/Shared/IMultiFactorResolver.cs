@@ -8,7 +8,7 @@ namespace Plugin.FirebaseAuth
     {
         IMultiFactorSession Session { get; }
         IEnumerable<IMultiFactorInfo> Hints { get; }
-        IAuth Auth { get; }
+        IFirebaseAuth Auth { get; }
         Task<IAuthResult> ResolveSignInAsync(IMultiFactorAssertion multiFactorAssertion);
     }
 }

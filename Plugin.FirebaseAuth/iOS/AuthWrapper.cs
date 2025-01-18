@@ -5,7 +5,7 @@ using Foundation;
 
 namespace Plugin.FirebaseAuth
 {
-    public class AuthWrapper : IAuth, IEquatable<AuthWrapper>
+    public class AuthWrapper : IFirebaseAuth, IEquatable<AuthWrapper>
     {
         private readonly Auth _auth;
 
@@ -331,7 +331,7 @@ namespace Plugin.FirebaseAuth
             return _auth.GetHashCode();
         }
 
-        Auth IAuth.ToNative()
+        Auth IFirebaseAuth.ToNative()
         {
             return _auth;
         }
@@ -346,7 +346,7 @@ namespace Plugin.FirebaseAuth
                 _instance = instance;
                 _listner = _instance.AddAuthStateDidChangeListener((Auth auth, User? user) =>
                 {
-                    handler?.Invoke(AuthProvider.GetAuth(auth));
+                    handler?.Invoke(AuthProvider.GetAuth(auth), user != null ? new UserWrapper(user) : null);
                 });
             }
 

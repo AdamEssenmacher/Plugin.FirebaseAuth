@@ -7,14 +7,14 @@ namespace Plugin.FirebaseAuth
     public partial class OAuthProvider : IFederatedAuthProvider
     {
         private readonly string _providerId;
-        private readonly IAuth? _auth;
+        private readonly IFirebaseAuth? _auth;
 
         public OAuthProvider(string providerId)
         {
             _providerId = providerId;
         }
 
-        public OAuthProvider(string providerId, IAuth auth)
+        public OAuthProvider(string providerId, IFirebaseAuth auth)
         {
             _providerId = providerId;
             _auth = auth;

@@ -3,9 +3,9 @@ namespace Plugin.FirebaseAuth
 {
     public class IdTokenEventArgs : EventArgs
     {
-        public IAuth Auth { get; }
+        public IFirebaseAuth Auth { get; }
 
-        public IdTokenEventArgs(IAuth auth)
+        public IdTokenEventArgs(IFirebaseAuth auth)
         {
             Auth = auth;
         }

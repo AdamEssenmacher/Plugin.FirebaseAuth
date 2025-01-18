@@ -19,7 +19,7 @@ namespace Plugin.FirebaseAuth
 
         public IEnumerable<IMultiFactorInfo> Hints => _multiFactorResolver.Hints.Select(info => MultiFactorInfoWrapperFactory.Create(info));
 
-        public IAuth Auth => AuthProvider.GetAuth(_multiFactorResolver.Auth);
+        public IFirebaseAuth Auth => AuthProvider.GetAuth(_multiFactorResolver.Auth);
 
         public Task<IAuthResult> ResolveSignInAsync(IMultiFactorAssertion multiFactorAssertion)
         {

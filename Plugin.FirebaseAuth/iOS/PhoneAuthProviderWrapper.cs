@@ -16,7 +16,7 @@ namespace Plugin.FirebaseAuth
             return GetCredential(Auth.DefaultInstance!, verificationId, verificationCode);
         }
 
-        public IPhoneAuthCredential GetCredential(IAuth auth, string verificationId, string verificationCode)
+        public IPhoneAuthCredential GetCredential(IFirebaseAuth auth, string verificationId, string verificationCode)
         {
             return GetCredential(auth.ToNative(), verificationId, verificationCode);
         }
@@ -37,12 +37,12 @@ namespace Plugin.FirebaseAuth
             return VerifyPhoneNumberAsync(Auth.DefaultInstance!, phoneNumber);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IAuth auth, string phoneNumber)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IFirebaseAuth auth, string phoneNumber)
         {
             return VerifyPhoneNumberAsync(auth.ToNative(), phoneNumber);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IAuth auth, string phoneNumber, TimeSpan timeSpan)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IFirebaseAuth auth, string phoneNumber, TimeSpan timeSpan)
         {
             return VerifyPhoneNumberAsync(auth.ToNative(), phoneNumber);
         }
@@ -67,22 +67,22 @@ namespace Plugin.FirebaseAuth
             return VerifyPhoneNumberAsync(Auth.DefaultInstance!, phoneMultiFactorInfo, multiFactorSession);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IAuth auth, string phoneNumber, IMultiFactorSession multiFactorSession)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IFirebaseAuth auth, string phoneNumber, IMultiFactorSession multiFactorSession)
         {
             return VerifyPhoneNumberAsync(auth.ToNative(), phoneNumber, multiFactorSession);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IAuth auth, string phoneNumber, IMultiFactorSession multiFactorSession, TimeSpan timeout, bool requiresSmsValidation)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IFirebaseAuth auth, string phoneNumber, IMultiFactorSession multiFactorSession, TimeSpan timeout, bool requiresSmsValidation)
         {
             return VerifyPhoneNumberAsync(auth.ToNative(), phoneNumber, multiFactorSession);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IAuth auth, IPhoneMultiFactorInfo phoneMultiFactorInfo, IMultiFactorSession multiFactorSession)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IFirebaseAuth auth, IPhoneMultiFactorInfo phoneMultiFactorInfo, IMultiFactorSession multiFactorSession)
         {
             return VerifyPhoneNumberAsync(auth.ToNative(), phoneMultiFactorInfo, multiFactorSession);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IAuth auth, IPhoneMultiFactorInfo phoneMultiFactorInfo, IMultiFactorSession multiFactorSession, TimeSpan timeout, bool requiresSmsValidation)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(IFirebaseAuth auth, IPhoneMultiFactorInfo phoneMultiFactorInfo, IMultiFactorSession multiFactorSession, TimeSpan timeout, bool requiresSmsValidation)
         {
             return VerifyPhoneNumberAsync(auth.ToNative(), phoneMultiFactorInfo, multiFactorSession);
         }
@@ -97,12 +97,12 @@ namespace Plugin.FirebaseAuth
             return VerifyPhoneNumberForTestingAsync(Auth.DefaultInstance!, phoneNumber, verificationCode, timeout);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(IAuth auth, string phoneNumber, string verificationCode)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(IFirebaseAuth auth, string phoneNumber, string verificationCode)
         {
             return VerifyPhoneNumberForTestingAsync(auth.ToNative(), phoneNumber, verificationCode, default);
         }
 
-        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(IAuth auth, string phoneNumber, string verificationCode, TimeSpan timeout)
+        public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(IFirebaseAuth auth, string phoneNumber, string verificationCode, TimeSpan timeout)
         {
             return VerifyPhoneNumberForTestingAsync(auth.ToNative(), phoneNumber, verificationCode, default);
         }

@@ -1,9 +1,10 @@
 ﻿using System;
-using Firebase.Auth;
+using System.Threading.Tasks;
+using Firebase;
 
 namespace Plugin.FirebaseAuth
 {
-    public class FirebaseAuthImplementation : IFirebaseAuth
+    public class FirebaseAuthPluginImplementation : IFirebaseAuthPlugin
     {
         public IEmailAuthProvider EmailAuthProvider { get; } = new EmailAuthProviderWrapper();
 
@@ -19,15 +20,15 @@ namespace Plugin.FirebaseAuth
 
         public IOAuthProvider OAuthProvider { get; } = new OAuthProviderWrapper();
 
-        public IPlayGamesAuthProvider? PlayGamesAuthProvider { get; }
+        public IPlayGamesAuthProvider? PlayGamesAuthProvider { get; } = new PlayGamesAuthProviderWrapper();
 
-        public IGameCenterAuthProvider? GameCenterAuthProvider { get; } = new GameCenterAuthProviderWrapper();
+        public IGameCenterAuthProvider? GameCenterAuthProvider { get; }
 
         public IPhoneMultiFactorGenerator PhoneMultiFactorGenerator { get; } = new PhoneMultiFactorGeneratorWrapper();
 
-        public IAuth Instance => AuthProvider.Auth;
+        public IFirebaseAuth Instance => AuthProvider.Auth;
 
-        public IAuth GetInstance(string appName)
+        public IFirebaseAuth GetInstance(string appName)
         {
             return AuthProvider.GetAuth(appName);
         }

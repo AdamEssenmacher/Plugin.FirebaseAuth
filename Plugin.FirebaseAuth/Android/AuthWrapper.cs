@@ -8,7 +8,7 @@ using Plugin.CurrentActivity;
 
 namespace Plugin.FirebaseAuth
 {
-    public class AuthWrapper : IAuth, IEquatable<AuthWrapper>
+    public class AuthWrapper : IFirebaseAuth, IEquatable<AuthWrapper>
     {
         private readonly Firebase.Auth.FirebaseAuth _auth;
 
@@ -319,7 +319,7 @@ namespace Plugin.FirebaseAuth
             return _auth.GetHashCode();
         }
 
-        Firebase.Auth.FirebaseAuth IAuth.ToNative()
+        Firebase.Auth.FirebaseAuth IFirebaseAuth.ToNative()
         {
             return _auth;
         }
@@ -361,7 +361,8 @@ namespace Plugin.FirebaseAuth
 
                 public void OnAuthStateChanged(Firebase.Auth.FirebaseAuth auth)
                 {
-                    _handler?.Invoke(AuthProvider.GetAuth(auth));
+                    AuthWrapper authWrapper = AuthProvider.GetAuth(auth);
+                    _handler?.Invoke(authWrapper, authWrapper.CurrentUser);
                 }
             }
         }

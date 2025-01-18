@@ -6,8 +6,8 @@
         <RootNamespace>Plugin.FirebaseAuth</RootNamespace>
         <PackageId>Scavos.FirebaseAuth</PackageId>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
-        <Version>3.0.0</Version>
-        <PackageVersion>3.0.0</PackageVersion>
+        <Version>3.0.2</Version>
+        <PackageVersion>3.0.2</PackageVersion>
         <PackOnBuild>true</PackOnBuild>
         <NeutralLanguage>en</NeutralLanguage>
         <DefineConstants>$(DefineConstants);</DefineConstants>
@@ -47,6 +47,6 @@
     </ItemGroup>
     <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
         <Compile Include="iOS\**\*.cs" />
-        <PackageReference Include="Scavos.Firebase.iOS.Auth" Version="10.16.0.2" />
+        <PackageReference Include="AdamE.Firebase.iOS.Auth" Version="10.16.0.0" />
     </ItemGroup>
 </Project>
