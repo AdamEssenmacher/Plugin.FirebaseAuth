@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Firebase;
 using Firebase.Auth;
 using Java.Util.Concurrent;
-using Plugin.CurrentActivity;
+using Xamarin.Essentials;
 
 namespace Plugin.FirebaseAuth
 {
@@ -106,7 +106,7 @@ namespace Plugin.FirebaseAuth
 
         private Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(Firebase.Auth.FirebaseAuth auth, string phoneNumber, TimeSpan timeout)
         {
-            var activity = CrossCurrentActivity.Current.Activity ?? throw new NullReferenceException("current activity is null");
+            var activity = Platform.CurrentActivity ?? throw new NullReferenceException("current activity is null");
 
             var tcs = new TaskCompletionSource<PhoneNumberVerificationResult>();
             var callbacks = new Callbacks(tcs);
@@ -120,7 +120,7 @@ namespace Plugin.FirebaseAuth
 
         private Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(Firebase.Auth.FirebaseAuth auth, string phoneNumber, IMultiFactorSession multiFactorSession, TimeSpan timeout, bool? requiresSmsValidation = null)
         {
-            var activity = CrossCurrentActivity.Current.Activity ?? throw new NullReferenceException("current activity is null");
+            var activity = Platform.CurrentActivity ?? throw new NullReferenceException("current activity is null");
 
             var tcs = new TaskCompletionSource<PhoneNumberVerificationResult>();
             var callbacks = new Callbacks(tcs);
@@ -146,7 +146,7 @@ namespace Plugin.FirebaseAuth
 
         private Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(Firebase.Auth.FirebaseAuth auth, IPhoneMultiFactorInfo phoneMultiFactorInfo, IMultiFactorSession multiFactorSession, TimeSpan timeout, bool? requiresSmsValidation = null)
         {
-            var activity = CrossCurrentActivity.Current.Activity ?? throw new NullReferenceException("current activity is null");
+            var activity = Platform.CurrentActivity ?? throw new NullReferenceException("current activity is null");
 
             var tcs = new TaskCompletionSource<PhoneNumberVerificationResult>();
             var callbacks = new Callbacks(tcs);
@@ -172,7 +172,7 @@ namespace Plugin.FirebaseAuth
 
         private Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(Firebase.Auth.FirebaseAuth auth, string phoneNumber, string verificationCode, TimeSpan timeout)
         {
-            var activity = CrossCurrentActivity.Current.Activity ?? throw new NullReferenceException("current activity is null");
+            var activity = Platform.CurrentActivity ?? throw new NullReferenceException("current activity is null");
 
             var tcs = new TaskCompletionSource<PhoneNumberVerificationResult>();
             var callbacks = new Callbacks(tcs);

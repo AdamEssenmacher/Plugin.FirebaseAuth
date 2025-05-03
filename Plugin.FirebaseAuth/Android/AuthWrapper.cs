@@ -4,7 +4,7 @@ using Firebase;
 using System.Linq;
 using Firebase.Auth;
 using Android.Gms.Extensions;
-using Plugin.CurrentActivity;
+using Xamarin.Essentials;
 
 namespace Plugin.FirebaseAuth
 {
@@ -112,7 +112,7 @@ namespace Plugin.FirebaseAuth
 
         public async Task<IAuthResult> SignInWithProviderAsync(IFederatedAuthProvider federatedAuthProvider)
         {
-            var activity = CrossCurrentActivity.Current.Activity ?? throw new NullReferenceException("current activity is null");
+            var activity = Platform.CurrentActivity ?? throw new NullReferenceException("current activity is null");
 
             try
             {

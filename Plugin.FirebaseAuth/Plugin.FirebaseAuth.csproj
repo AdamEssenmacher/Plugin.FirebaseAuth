@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="MSBuild.Sdk.Extras/3.0.22">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;Xamarin.iOS10;MonoAndroid90;MonoAndroid10.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;Xamarin.iOS10;MonoAndroid13.0</TargetFrameworks>
         <AssemblyName>Plugin.FirebaseAuth</AssemblyName>
         <RootNamespace>Plugin.FirebaseAuth</RootNamespace>
         <PackageId>Scavos.FirebaseAuth</PackageId>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
-        <Version>3.0.2</Version>
-        <PackageVersion>3.0.2</PackageVersion>
+        <Version>3.1.0</Version>
+        <PackageVersion>3.1.0</PackageVersion>
         <PackOnBuild>true</PackOnBuild>
         <NeutralLanguage>en</NeutralLanguage>
         <DefineConstants>$(DefineConstants);</DefineConstants>
@@ -42,7 +42,7 @@
     </ItemGroup>
     <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
         <Compile Include="Android\**\*.cs" />
-        <PackageReference Include="Plugin.CurrentActivity" Version="2.1.0.4" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
         <PackageReference Include="Xamarin.Firebase.Auth" Version="119.3.1" PrivateAssets="contentFiles;analyzers" />
     </ItemGroup>
     <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
