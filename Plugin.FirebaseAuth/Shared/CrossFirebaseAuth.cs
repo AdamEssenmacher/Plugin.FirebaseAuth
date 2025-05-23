@@ -6,12 +6,12 @@ namespace Plugin.FirebaseAuth
     /// </summary>
     public static class CrossFirebaseAuth
     {
-        static Lazy<IFirebaseAuthPlugin?> implementation = new Lazy<IFirebaseAuthPlugin?>(() => CreateFirebaseAuth(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
+        private static readonly Lazy<IFirebaseAuthPlugin?> Implementation = new Lazy<IFirebaseAuthPlugin?>(() => CreateFirebaseAuth(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
         /// <summary>
         /// Gets if the plugin is supported on the current platform.
         /// </summary>
-        public static bool IsSupported => implementation.Value == null ? false : true;
+        public static bool IsSupported => Implementation.Value == null ? false : true;
 
         /// <summary>
         /// Current plugin implementation to use
@@ -20,7 +20,7 @@ namespace Plugin.FirebaseAuth
         {
             get
             {
-                IFirebaseAuthPlugin? ret = implementation.Value;
+                IFirebaseAuthPlugin? ret = Implementation.Value;
                 if (ret == null)
                 {
                     throw NotImplementedInReferenceAssembly();

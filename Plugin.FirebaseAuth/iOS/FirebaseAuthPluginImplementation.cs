@@ -16,8 +16,6 @@
 
         public IOAuthProvider OAuthProvider { get; } = new OAuthProviderWrapper();
 
-        public IPlayGamesAuthProvider? PlayGamesAuthProvider { get; }
-
         public IGameCenterAuthProvider? GameCenterAuthProvider { get; } = new GameCenterAuthProviderWrapper();
 
         public IPhoneMultiFactorGenerator PhoneMultiFactorGenerator { get; } = new PhoneMultiFactorGeneratorWrapper();

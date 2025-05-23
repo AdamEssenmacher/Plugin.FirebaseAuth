@@ -40,6 +40,7 @@ namespace Plugin.FirebaseAuth
                     {
                         var doubleValue = @number.DoubleValue();
                         var longValue = @number.LongValue();
+                        // ReSharper disable once CompareOfFloatsByEqualityOperator
                         if (doubleValue == longValue)
                         {
                             return longValue;

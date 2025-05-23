@@ -167,11 +167,11 @@ namespace Plugin.FirebaseAuth
                 }
                 else
                 {
-                    _auth.SignInWithCredential(credential!, (result, error) =>
+                    _auth.SignInWithCredential(credential!, (result, nsError) =>
                     {
-                        if (error != null)
+                        if (nsError != null)
                         {
-                            tcs.SetException(ExceptionMapper.Map(error));
+                            tcs.SetException(ExceptionMapper.Map(nsError));
                         }
                         else
                         {
@@ -344,7 +344,7 @@ namespace Plugin.FirebaseAuth
             public AuthStateChangedListenerRegistration(Auth instance, AuthStateChangedHandler handler)
             {
                 _instance = instance;
-                _listner = _instance.AddAuthStateDidChangeListener((Auth auth, User? user) =>
+                _listner = _instance.AddAuthStateDidChangeListener((auth, user) =>
                 {
                     handler?.Invoke(AuthProvider.GetAuth(auth), user != null ? new UserWrapper(user) : null);
                 });
@@ -373,7 +373,7 @@ namespace Plugin.FirebaseAuth
             public IdTokenChangedListenerRegistration(Auth instance, IdTokenChangedHandler handler)
             {
                 _instance = instance;
-                _listner = _instance.AddIdTokenDidChangeListener((Auth auth, User? user) =>
+                _listner = _instance.AddIdTokenDidChangeListener((auth, _) =>
                 {
                     handler?.Invoke(AuthProvider.GetAuth(auth));
                 });

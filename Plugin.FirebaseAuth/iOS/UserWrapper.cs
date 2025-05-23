@@ -102,11 +102,11 @@ namespace Plugin.FirebaseAuth
                 }
                 else
                 {
-                    _user.Link(credential!, (result, error) =>
+                    _user.Link(credential!, (result, nsError) =>
                     {
-                        if (error != null)
+                        if (nsError != null)
                         {
-                            tcs.SetException(ExceptionMapper.Map(error));
+                            tcs.SetException(ExceptionMapper.Map(nsError));
                         }
                         else
                         {

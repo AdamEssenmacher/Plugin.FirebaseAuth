@@ -7,7 +7,7 @@ namespace Plugin.FirebaseAuth
     {
         public static Exception Map(NSErrorException exception)
         {
-            var authErrorCode = (AuthErrorCode)(long)exception.Error.Code;
+            var authErrorCode = (AuthErrorCode)exception.Error.Code;
 
             var userInfo = exception.Error.UserInfo;
             var errorCode = userInfo[Auth.ErrorUserInfoNameKey] as NSString;

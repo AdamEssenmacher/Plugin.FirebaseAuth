@@ -18,6 +18,7 @@ namespace Plugin.FirebaseAuth
 
         public static AuthWrapper GetAuth(Auth auth)
         {
+            // ReSharper disable once PossibleUnintendedReferenceComparison
             if (auth == Firebase.Auth.Auth.DefaultInstance)
             {
                 return Auth;

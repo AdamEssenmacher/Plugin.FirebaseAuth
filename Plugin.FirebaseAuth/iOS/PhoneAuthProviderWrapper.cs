@@ -89,22 +89,22 @@ namespace Plugin.FirebaseAuth
 
         public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(string phoneNumber, string verificationCode)
         {
-            return VerifyPhoneNumberForTestingAsync(Auth.DefaultInstance!, phoneNumber, verificationCode, default);
+            return VerifyPhoneNumberForTestingAsync(Auth.DefaultInstance!, phoneNumber, verificationCode);
         }
 
         public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(string phoneNumber, string verificationCode, TimeSpan timeout)
         {
-            return VerifyPhoneNumberForTestingAsync(Auth.DefaultInstance!, phoneNumber, verificationCode, timeout);
+            return VerifyPhoneNumberForTestingAsync(Auth.DefaultInstance!, phoneNumber, verificationCode);
         }
 
         public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(IFirebaseAuth auth, string phoneNumber, string verificationCode)
         {
-            return VerifyPhoneNumberForTestingAsync(auth.ToNative(), phoneNumber, verificationCode, default);
+            return VerifyPhoneNumberForTestingAsync(auth.ToNative(), phoneNumber, verificationCode);
         }
 
         public Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(IFirebaseAuth auth, string phoneNumber, string verificationCode, TimeSpan timeout)
         {
-            return VerifyPhoneNumberForTestingAsync(auth.ToNative(), phoneNumber, verificationCode, default);
+            return VerifyPhoneNumberForTestingAsync(auth.ToNative(), phoneNumber, verificationCode);
         }
 
         private async Task<PhoneNumberVerificationResult> VerifyPhoneNumberAsync(Auth auth, string phoneNumber)
@@ -170,7 +170,7 @@ namespace Plugin.FirebaseAuth
             }
         }
 
-        private async Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(Auth auth, string phoneNumber, string verificationCode, TimeSpan timeout)
+        private async Task<PhoneNumberVerificationResult> VerifyPhoneNumberForTestingAsync(Auth auth, string phoneNumber, string verificationCode)
         {
             try
             {
