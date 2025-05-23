@@ -4,7 +4,7 @@ using Firebase;
 using System.Linq;
 using Firebase.Auth;
 using Android.Gms.Extensions;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Plugin.FirebaseAuth
 {

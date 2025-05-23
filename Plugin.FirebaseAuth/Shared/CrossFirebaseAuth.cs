@@ -31,13 +31,11 @@ namespace Plugin.FirebaseAuth
 
         static IFirebaseAuthPlugin? CreateFirebaseAuth()
         {
-#if NETSTANDARD
-            return null;
-#else
-#pragma warning disable IDE0022 // Use expression body for methods
+            #if IOS || ANDROID
             return new FirebaseAuthPluginImplementation();
-#pragma warning restore IDE0022 // Use expression body for methods
-#endif
+            #else
+            return null;
+            #endif
         }
 
         internal static Exception NotImplementedInReferenceAssembly() =>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Firebase.Auth;
 using Firebase;
 using Android.Gms.Extensions;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Plugin.FirebaseAuth
 {
@@ -99,7 +99,7 @@ namespace Plugin.FirebaseAuth
             {
                 Firebase.Auth.IAuthResult result;
 
-                var auth = Firebase.Auth.FirebaseAuth.GetInstance(_user.Zzc());
+                var auth = Firebase.Auth.FirebaseAuth.Instance;
                 var pendingResultTask = auth.GetPendingAuthResult();
 
                 if (pendingResultTask != null)
@@ -141,7 +141,7 @@ namespace Plugin.FirebaseAuth
             {
                 Firebase.Auth.IAuthResult result;
 
-                var auth = Firebase.Auth.FirebaseAuth.GetInstance(_user.Zzc());
+                var auth = Firebase.Auth.FirebaseAuth.Instance;
                 var pendingResultTask = auth.GetPendingAuthResult();
 
                 if (pendingResultTask != null)

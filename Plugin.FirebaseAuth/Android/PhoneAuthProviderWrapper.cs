@@ -2,8 +2,9 @@
 using System.Threading.Tasks;
 using Firebase;
 using Firebase.Auth;
+using Java.Lang;
 using Java.Util.Concurrent;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Plugin.FirebaseAuth
 {
@@ -113,7 +114,13 @@ namespace Plugin.FirebaseAuth
 
             auth.FirebaseAuthSettings.SetAutoRetrievedSmsCodeForPhoneNumber(null, null);
 
-            PhoneAuthProvider.GetInstance(auth).VerifyPhoneNumber(phoneNumber, (long)timeout.TotalMilliseconds, TimeUnit.Milliseconds, activity, callbacks);
+            PhoneAuthOptions? options = PhoneAuthOptions.NewBuilder(auth)
+                .SetPhoneNumber(phoneNumber)
+                .SetTimeout(Long.ValueOf((long)timeout.TotalMilliseconds), TimeUnit.Milliseconds)
+                .SetActivity(activity)
+                .SetCallbacks(callbacks)
+                .Build();
+            PhoneAuthProvider.VerifyPhoneNumber(options);
 
             return tcs.Task;
         }
@@ -130,7 +137,7 @@ namespace Plugin.FirebaseAuth
                 .SetCallbacks(callbacks)
                 .SetPhoneNumber(phoneNumber)
                 .SetMultiFactorSession(multiFactorSession.ToNative())
-                .SetTimeout(new Java.Lang.Long((long)timeout.TotalMilliseconds), TimeUnit.Milliseconds);
+                .SetTimeout(Long.ValueOf((long)timeout.TotalMilliseconds), TimeUnit.Milliseconds);
 
             if (requiresSmsValidation.HasValue)
             {
@@ -156,7 +163,7 @@ namespace Plugin.FirebaseAuth
                 .SetCallbacks(callbacks)
                 .SetMultiFactorHint(phoneMultiFactorInfo.ToNative())
                 .SetMultiFactorSession(multiFactorSession.ToNative())
-                .SetTimeout(new Java.Lang.Long((long)timeout.TotalMilliseconds), TimeUnit.Milliseconds);
+                .SetTimeout(Long.ValueOf((long)timeout.TotalMilliseconds), TimeUnit.Milliseconds);
 
             if (requiresSmsValidation.HasValue)
             {
@@ -179,7 +186,13 @@ namespace Plugin.FirebaseAuth
 
             auth.FirebaseAuthSettings.SetAutoRetrievedSmsCodeForPhoneNumber(phoneNumber, verificationCode);
 
-            PhoneAuthProvider.GetInstance(auth).VerifyPhoneNumber(phoneNumber, (long)timeout.TotalMilliseconds, TimeUnit.Milliseconds, activity, callbacks);
+            PhoneAuthOptions? options = PhoneAuthOptions.NewBuilder(auth)
+                .SetPhoneNumber(phoneNumber)
+                .SetTimeout(Long.ValueOf((long)timeout.TotalMilliseconds), TimeUnit.Milliseconds)
+                .SetActivity(activity)
+                .SetCallbacks(callbacks)
+                .Build();
+            PhoneAuthProvider.VerifyPhoneNumber(options);
 
             return tcs.Task;
         }
