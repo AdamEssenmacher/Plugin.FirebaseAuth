@@ -10,7 +10,6 @@
         IPhoneAuthProvider PhoneAuthProvider { get; }
         IOAuthProvider OAuthProvider { get; }
         IPlayGamesAuthProvider? PlayGamesAuthProvider { get; }
-        IGameCenterAuthProvider? GameCenterAuthProvider { get; }
         IPhoneMultiFactorGenerator PhoneMultiFactorGenerator { get; }
         IFirebaseAuth Instance { get; }
         IFirebaseAuth GetInstance(string appName);

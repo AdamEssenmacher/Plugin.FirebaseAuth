@@ -18,8 +18,6 @@
 
         public IPlayGamesAuthProvider? PlayGamesAuthProvider { get; } = new PlayGamesAuthProviderWrapper();
 
-        public IGameCenterAuthProvider? GameCenterAuthProvider { get; }
-
         public IPhoneMultiFactorGenerator PhoneMultiFactorGenerator { get; } = new PhoneMultiFactorGeneratorWrapper();
 
         public IFirebaseAuth Instance => AuthProvider.Auth;
