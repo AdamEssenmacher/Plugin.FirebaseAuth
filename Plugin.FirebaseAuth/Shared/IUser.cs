@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Globalization;
 using System.Collections.Generic;
 namespace Plugin.FirebaseAuth
 {

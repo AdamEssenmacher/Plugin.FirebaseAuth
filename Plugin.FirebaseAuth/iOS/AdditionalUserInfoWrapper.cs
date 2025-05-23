@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Firebase.Auth;
-using System.Linq;
-using Foundation;
 
 namespace Plugin.FirebaseAuth
 {

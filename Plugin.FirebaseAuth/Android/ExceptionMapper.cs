@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Firebase;
 using Firebase.Auth;
-using Java.Util;
 
 namespace Plugin.FirebaseAuth
 {

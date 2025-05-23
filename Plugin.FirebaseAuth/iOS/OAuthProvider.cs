@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using Firebase.Auth;
+﻿using System.Linq;
 using Foundation;
 
 namespace Plugin.FirebaseAuth

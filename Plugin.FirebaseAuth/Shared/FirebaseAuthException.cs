@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
+
 namespace Plugin.FirebaseAuth
 {
     public class FirebaseAuthException : Exception

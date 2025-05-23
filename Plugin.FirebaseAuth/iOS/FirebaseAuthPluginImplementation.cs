@@ -1,7 +1,4 @@
-﻿using System;
-using Firebase.Auth;
-
-namespace Plugin.FirebaseAuth
+﻿namespace Plugin.FirebaseAuth
 {
     public class FirebaseAuthPluginImplementation : IFirebaseAuthPlugin
     {
