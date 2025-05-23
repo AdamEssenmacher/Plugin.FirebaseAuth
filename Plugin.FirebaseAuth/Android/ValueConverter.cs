@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.Runtime;
 using AndroidX.Collection;
 
@@ -63,12 +64,16 @@ namespace Plugin.FirebaseAuth
                 case JavaDictionary javaDictionary:
                     {
                         var dict = new Dictionary<string, object?>();
+                        // ReSharper disable once GenericEnumeratorNotDisposed
                         var enumerator = javaDictionary.GetEnumerator();
 
                         while (enumerator.MoveNext())
                         {
                             var entry = enumerator.Entry;
-                            dict[entry.Key.ToString()] = Convert(entry.Value);
+                            var keyString = entry.Key.ToString();
+                            if (keyString == null)
+                                throw new Exception("keyString cannot be null here");
+                            dict[keyString] = Convert(entry.Value);
                         }
                         return dict;
                     }
@@ -77,8 +82,10 @@ namespace Plugin.FirebaseAuth
                         var dict = new Dictionary<string, object?>();
                         foreach (var key in arrayMap.KeySet())
                         {
-                            var keyStr = key.ToString();
-                            dict[keyStr] = Convert(arrayMap.Get(keyStr));
+                            var keyString = key.ToString();
+                            if (keyString == null)
+                                throw new Exception("keyString cannot be null here");
+                            dict[keyString] = Convert(arrayMap.Get(keyString));
                         }
                         return dict;
                     }

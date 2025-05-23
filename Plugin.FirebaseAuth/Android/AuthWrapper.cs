@@ -290,12 +290,12 @@ namespace Plugin.FirebaseAuth
             return null;
         }
 
-        private void OnAuthStateChanged(object sender, Firebase.Auth.FirebaseAuth.AuthStateEventArgs e)
+        private void OnAuthStateChanged(object? sender, Firebase.Auth.FirebaseAuth.AuthStateEventArgs e)
         {
             AuthState?.Invoke(this, new AuthStateEventArgs(AuthProvider.GetAuth(e.Auth)));
         }
 
-        private void OnIdTokenChanged(object sender, Firebase.Auth.FirebaseAuth.IdTokenEventArgs e)
+        private void OnIdTokenChanged(object? sender, Firebase.Auth.FirebaseAuth.IdTokenEventArgs e)
         {
             IdToken?.Invoke(this, new IdTokenEventArgs(AuthProvider.GetAuth(e.Auth)));
         }
@@ -362,7 +362,7 @@ namespace Plugin.FirebaseAuth
                 public void OnAuthStateChanged(Firebase.Auth.FirebaseAuth auth)
                 {
                     AuthWrapper authWrapper = AuthProvider.GetAuth(auth);
-                    _handler?.Invoke(authWrapper, authWrapper.CurrentUser);
+                    _handler.Invoke(authWrapper, authWrapper.CurrentUser);
                 }
             }
         }
@@ -404,7 +404,7 @@ namespace Plugin.FirebaseAuth
 
                 public void OnIdTokenChanged(Firebase.Auth.FirebaseAuth auth)
                 {
-                    _handler?.Invoke(AuthProvider.GetAuth(auth));
+                    _handler.Invoke(AuthProvider.GetAuth(auth));
                 }
             }
         }

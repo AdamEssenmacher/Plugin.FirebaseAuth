@@ -13,7 +13,7 @@ namespace Plugin.FirebaseAuth
 
         public IAdditionalUserInfo? AdditionalUserInfo => _authResult.AdditionalUserInfo != null ? new AdditionalUserInfoWrapper(_authResult.AdditionalUserInfo) : null;
 
-        public IUser? User => _authResult.User != null ? new UserWrapper(_authResult.User) : null;
+        public IUser User => new UserWrapper(_authResult.User);
 
         public IAuthCredential? Credential => _authResult.Credential != null ? AuthCredentialWrapperFactory.Create(_authResult.Credential) : null;
 

@@ -24,7 +24,7 @@ namespace Plugin.FirebaseAuth
 
         public string? PhoneNumber => _user.PhoneNumber;
 
-        public Uri? PhotoUrl => _user.PhotoUrl != null ? new Uri(_user.PhotoUrl.AbsoluteString) : null;
+        public Uri? PhotoUrl => _user.PhotoUrl?.AbsoluteString != null ? new Uri(_user.PhotoUrl.AbsoluteString) : null;
 
         public IEnumerable<IUserInfo> ProviderData => _user.ProviderData.Select(userInfo => new UserInfoWrapper(userInfo));
 
@@ -35,7 +35,7 @@ namespace Plugin.FirebaseAuth
         public bool IsEmailVerified => _user.IsEmailVerified;
 
         public IUserMetadata? Metadata =>
-            _user.Metadata != null && _user.Metadata.CreationDate != null && _user.Metadata.LastSignInDate != null
+            _user.Metadata.CreationDate != null && _user.Metadata.LastSignInDate != null
             ? new UserMetadataWrapper(_user.Metadata) : null;
 
         public IMultiFactor MultiFactor => new MultiFactorWrapper(_user.MultiFactor);
@@ -159,7 +159,7 @@ namespace Plugin.FirebaseAuth
         {
             try
             {
-                await _user.SendEmailVerificationAsync(actionCodeSettings.ToNative()!).ConfigureAwait(false);
+                await _user.SendEmailVerificationAsync(actionCodeSettings.ToNative()).ConfigureAwait(false);
             }
             catch (NSErrorException e)
             {
@@ -254,7 +254,7 @@ namespace Plugin.FirebaseAuth
         {
             try
             {
-                await _user.SendEmailVerificationBeforeUpdatingEmailAsync(newEmail, actionCodeSettings.ToNative()!).ConfigureAwait(false);
+                await _user.SendEmailVerificationBeforeUpdatingEmailAsync(newEmail, actionCodeSettings.ToNative()).ConfigureAwait(false);
             }
             catch (NSErrorException e)
             {

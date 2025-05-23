@@ -24,7 +24,7 @@ namespace Plugin.FirebaseAuth
             _ => ActionCodeOperation.Unkonwn,
         };
 
-        public string? Email => _actionCodeInfo.Email;
+        public string Email => _actionCodeInfo.Email;
 
         public string? PreviousEmail => _actionCodeInfo.PreviousEmail;
 

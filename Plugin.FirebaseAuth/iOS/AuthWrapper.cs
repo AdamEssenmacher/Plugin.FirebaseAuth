@@ -135,7 +135,7 @@ namespace Plugin.FirebaseAuth
         {
             try
             {
-                await _auth.SendPasswordResetAsync(email, actionCodeSettings.ToNative()!).ConfigureAwait(false);
+                await _auth.SendPasswordResetAsync(email, actionCodeSettings.ToNative()).ConfigureAwait(false);
             }
             catch (NSErrorException e)
             {
@@ -147,7 +147,7 @@ namespace Plugin.FirebaseAuth
         {
             try
             {
-                await _auth.SendSignInLinkAsync(email, actionCodeSettings.ToNative()!).ConfigureAwait(false);
+                await _auth.SendSignInLinkAsync(email, actionCodeSettings.ToNative()).ConfigureAwait(false);
             }
             catch (NSErrorException e)
             {
@@ -346,7 +346,7 @@ namespace Plugin.FirebaseAuth
                 _instance = instance;
                 _listner = _instance.AddAuthStateDidChangeListener((auth, user) =>
                 {
-                    handler?.Invoke(AuthProvider.GetAuth(auth), user != null ? new UserWrapper(user) : null);
+                    handler.Invoke(AuthProvider.GetAuth(auth), user != null ? new UserWrapper(user) : null);
                 });
             }
 
@@ -375,7 +375,7 @@ namespace Plugin.FirebaseAuth
                 _instance = instance;
                 _listner = _instance.AddIdTokenDidChangeListener((auth, _) =>
                 {
-                    handler?.Invoke(AuthProvider.GetAuth(auth));
+                    handler.Invoke(AuthProvider.GetAuth(auth));
                 });
             }
 

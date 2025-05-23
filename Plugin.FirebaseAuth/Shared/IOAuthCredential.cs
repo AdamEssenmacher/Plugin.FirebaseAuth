@@ -2,8 +2,8 @@
 {
     public interface IOAuthCredential : IAuthCredential
     {
-        string AccessToken { get; }
-        string IdToken { get; }
-        string Secret { get; }
+        string? AccessToken { get; }
+        string? IdToken { get; }
+        string? Secret { get; }
     }
 }

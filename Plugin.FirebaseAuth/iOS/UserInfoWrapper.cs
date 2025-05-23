@@ -17,7 +17,7 @@ namespace Plugin.FirebaseAuth
 
         public string? PhoneNumber => _userInfo.PhoneNumber;
 
-        public Uri? PhotoUrl => _userInfo.PhotoUrl != null ? new Uri(_userInfo.PhotoUrl.AbsoluteString) : null;
+        public Uri? PhotoUrl => _userInfo.PhotoUrl?.AbsoluteString != null ? new Uri(_userInfo.PhotoUrl.AbsoluteString) : null;
 
         public string ProviderId => _userInfo.ProviderId;
 

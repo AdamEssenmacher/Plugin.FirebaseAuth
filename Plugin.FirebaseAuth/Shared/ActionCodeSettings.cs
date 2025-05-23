@@ -1,6 +1,6 @@
 ﻿namespace Plugin.FirebaseAuth
 {
-    public partial class ActionCodeSettings
+    public class ActionCodeSettings
     {
         public string? AndroidPackageName { get; private set; }
         public bool AndroidInstallIfNotAvailable { get; private set; }

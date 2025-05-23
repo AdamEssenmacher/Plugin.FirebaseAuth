@@ -33,6 +33,8 @@ namespace Plugin.FirebaseAuth
                 }
                 else
                 {
+                    if (authResult == null)
+                        throw new Exception("authResult cannot be null here");
                     tcs.SetResult(new AuthResultWrapper(authResult));
                 }
             });

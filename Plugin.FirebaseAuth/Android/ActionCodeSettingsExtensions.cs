@@ -4,8 +4,6 @@
     {
         public static Firebase.Auth.ActionCodeSettings? ToNative(this ActionCodeSettings self)
         {
-            if (self == null) return null;
-
             var builder = Firebase.Auth.ActionCodeSettings.NewBuilder();
 
             if (self.IsUrlChanged)

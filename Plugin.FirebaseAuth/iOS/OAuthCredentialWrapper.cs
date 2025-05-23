@@ -12,11 +12,11 @@ namespace Plugin.FirebaseAuth
             _oAuthCredential = oAuthCredential ?? throw new ArgumentNullException(nameof(oAuthCredential));
         }
 
-        public string AccessToken => _oAuthCredential.AccessToken;
+        public string? AccessToken => _oAuthCredential.AccessToken;
 
-        public string IdToken => _oAuthCredential.IdToken;
+        public string? IdToken => _oAuthCredential.IdToken;
 
-        public string Secret => _oAuthCredential.Secret;
+        public string? Secret => _oAuthCredential.Secret;
 
         public override bool Equals(object? obj)
         {

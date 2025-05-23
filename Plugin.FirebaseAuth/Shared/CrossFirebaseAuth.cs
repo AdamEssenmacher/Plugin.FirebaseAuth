@@ -29,7 +29,7 @@ namespace Plugin.FirebaseAuth
             }
         }
 
-        static IFirebaseAuthPlugin? CreateFirebaseAuth()
+        static IFirebaseAuthPlugin CreateFirebaseAuth()
         {
             #if IOS || ANDROID
             return new FirebaseAuthPluginImplementation();

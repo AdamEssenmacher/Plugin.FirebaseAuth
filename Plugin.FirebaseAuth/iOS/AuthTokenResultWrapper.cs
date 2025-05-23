@@ -13,7 +13,7 @@ namespace Plugin.FirebaseAuth
             _authTokenResult = authTokenResult ?? throw new ArgumentNullException(nameof(authTokenResult));
         }
 
-        public string? Token => _authTokenResult.Token;
+        public string Token => _authTokenResult.Token;
 
         public DateTimeOffset ExpirationDate =>
             new DateTimeOffset(2001, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(_authTokenResult.ExpirationDate.SecondsSinceReferenceDate);
@@ -24,9 +24,9 @@ namespace Plugin.FirebaseAuth
         public DateTimeOffset IssuedAtDate =>
             new DateTimeOffset(2001, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(_authTokenResult.IssuedAtDate.SecondsSinceReferenceDate);
 
-        public string? SignInProvider => _authTokenResult.SignInProvider;
+        public string SignInProvider => _authTokenResult.SignInProvider;
 
-        public string? SignInSecondFactor => _authTokenResult.SignInSecondFactor;
+        public string SignInSecondFactor => _authTokenResult.SignInSecondFactor;
 
         public IDictionary<string, object?> Claims
         {

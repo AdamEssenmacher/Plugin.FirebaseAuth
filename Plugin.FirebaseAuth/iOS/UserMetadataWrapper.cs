@@ -11,9 +11,9 @@ namespace Plugin.FirebaseAuth
             _userMetadata = userMetadata ?? throw new ArgumentNullException(nameof(userMetadata));
         }
 
-        public DateTimeOffset CreationDate => new DateTimeOffset(2001, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(_userMetadata.CreationDate.SecondsSinceReferenceDate);
+        public DateTimeOffset CreationDate => new DateTimeOffset(2001, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(_userMetadata.CreationDate?.SecondsSinceReferenceDate ?? 0);
 
-        public DateTimeOffset LastSignInDate => new DateTimeOffset(2001, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(_userMetadata.LastSignInDate.SecondsSinceReferenceDate);
+        public DateTimeOffset LastSignInDate => new DateTimeOffset(2001, 1, 1, 0, 0, 0, TimeSpan.Zero).AddSeconds(_userMetadata.LastSignInDate?.SecondsSinceReferenceDate ?? 0);
 
         public override bool Equals(object? obj)
         {

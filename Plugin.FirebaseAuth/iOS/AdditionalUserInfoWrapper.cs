@@ -28,7 +28,7 @@ namespace Plugin.FirebaseAuth
             }
         }
 
-        public string? ProviderId => _additionalUserInfo.ProviderId;
+        public string ProviderId => _additionalUserInfo.ProviderId;
 
         public string? Username => _additionalUserInfo.Username;
 
